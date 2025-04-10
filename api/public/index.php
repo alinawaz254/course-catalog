@@ -16,19 +16,19 @@ switch ($requestUri) {
     case '/':
         header('Location: /index.html');
         break;
-    case '/course-catalog/api/public/courses':
+    case '/course-catalog-new/api/public/courses':
         $controller = new CoursesController();
         $controller->index();
         break;
-        case preg_match('|^/course-catalog/api/public/courses/([a-zA-Z0-9]+)$|', $requestUri, $matches) ? true : false:
+        case preg_match('|^/course-catalog-new/api/public/courses/([a-zA-Z0-9]+)$|', $requestUri, $matches) ? true : false:
         $controller = new CoursesController();
         $controller->show($matches[1]);
         break;
-        case preg_match('|^/course-catalog/api/public/categories/([a-f0-9\-]+)/courses$|i', $requestUri, $matches) ? true : false:
+        case preg_match('|^/course-catalog-new/api/public/categories/([a-f0-9\-]+)/courses$|i', $requestUri, $matches) ? true : false:
         $controller = new CategoriesController();
         $controller->courses($matches[1]);
         break;
-    case '/course-catalog/api/public/categories':
+    case '/course-catalog-new/api/public/categories':
         $controller = new CategoriesController();
         $controller->index();
         break;
